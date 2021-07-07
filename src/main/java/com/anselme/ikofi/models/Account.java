@@ -23,7 +23,7 @@ public class Account {
     @CreationTimestamp
     private Date createdAt;
 
-    @OneToOne(mappedBy = "account")
+    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
     private User user;
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)

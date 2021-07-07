@@ -58,4 +58,12 @@ public class Profile {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

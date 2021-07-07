@@ -1,10 +1,6 @@
 package com.anselme.ikofi.models;
 
 import com.anselme.ikofi.models.enums.EAccountStatus;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -27,7 +23,7 @@ public class Account {
     @CreationTimestamp
     private Date createdAt;
 
-    @OneToOne(mappedBy = "account", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     private User user;
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)

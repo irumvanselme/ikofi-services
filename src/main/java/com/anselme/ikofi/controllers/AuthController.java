@@ -94,9 +94,4 @@ public class AuthController {
         User user = userService.getLoggedInUser();
         return ResponseEntity.ok(user);
     }
-
-    @GetMapping("/testing")
-    public ResponseEntity<?> testing(){
-        return ResponseEntity.ok(userService.findById(1));
-    }
 }

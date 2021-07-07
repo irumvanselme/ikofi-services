@@ -1,5 +1,7 @@
 package com.anselme.ikofi.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.sun.istack.NotNull;
@@ -10,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,property = "id")
 public class User {
 
     @Id
@@ -35,11 +38,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private ERoleName role;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private Profile profile;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 

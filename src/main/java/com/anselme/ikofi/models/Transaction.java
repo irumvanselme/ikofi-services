@@ -9,7 +9,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "transactions")
-@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Transaction {
 
     @Id

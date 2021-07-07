@@ -1,5 +1,6 @@
 package com.anselme.ikofi.services;
 
+import com.anselme.ikofi.models.Profile;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.repositories.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,33 +17,37 @@ public class UserService {
     private final IUserRepository userRepository;
 
     @Autowired
-    public UserService(IUserRepository userRepository){
+    public UserService(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public User create(User user){
+    public User create(User user) {
         return userRepository.save(user);
     }
 
-    public Optional<User> findUser(String login){
+    public User findById(long id) {
+        return userRepository.findById(id).orElseThrow();
+    }
+
+    public Optional<User> findUser(String login) {
         return userRepository.findByEmailOrUsername(login, login);
     }
 
-    public boolean emailAlreadyInUse(String email){
+    public boolean emailAlreadyInUse(String email) {
         return userRepository.existsByEmail(email);
     }
 
-    public boolean userNameAlreadyInUse(String username){
+    public boolean userNameAlreadyInUse(String username) {
         return userRepository.existsByUsername(username);
     }
 
-    public User getLoggedInUser(){
+    public User getLoggedInUser() {
         String username;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if(principal instanceof UserDetails){
+        if (principal instanceof UserDetails) {
             username = ((UserDetails) principal).getUsername();
-        }else{
+        } else {
             username = principal.toString();
         }
 

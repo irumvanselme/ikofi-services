@@ -1,0 +1,77 @@
+{
+  "status": "Success",
+  "message": "Success",
+  "data": {
+    "id": 0,
+    "sender": {
+      "id": 1,
+      "amount": 99000.0,
+      "status": "ACTIVE",
+      "createdAt": "2021-07-07T12:02:03.000+00:00",
+      "user": {
+        "id": 1,
+        "full_names": "IRUMVA HABUMUGISHA Anselme",
+        "email": "andesanselme@gmail.com",
+        "mobile": "+250 783 384 212",
+        "username": "anselme23",
+        "password": "$2a$10$xTM23S4Ic/7fYjwAsSeY6uj1ta09RSmioG0WobLMa5VhBmbmYKZY2",
+        "role": "ROLE_USER",
+        "profile": {
+          "id": 1,
+          "address": "Kirehe",
+          "idCard": "No Id card",
+          "title": "No title",
+          "user": 1
+        },
+        "account": {
+          "id": 1,
+          "amount": 99000.0,
+          "status": "ACTIVE",
+          "createdAt": "2021-07-07T12:02:03.000+00:00",
+          "user": 1,
+          "sent": [],
+          "received": []
+        }
+      },
+      "sent": [],
+      "received": []
+    },
+    "receiver": {
+      "id": 2,
+      "amount": 1000.0,
+      "status": "ACTIVE",
+      "createdAt": "2021-07-07T13:36:18.000+00:00",
+      "user": {
+        "id": 2,
+        "full_names": "BATISITA Lambert",
+        "email": "batisita@gmail.com",
+        "mobile": "+250 783 384 212",
+        "username": "batusita",
+        "password": "$2a$10$qC.hOL5/y8SH7YRvuAl0p.Dl5LcyxPynCAGrLnq7GgEFKkgYfSEyK",
+        "role": "ROLE_USER",
+        "profile": {
+          "id": 2,
+          "address": "Kirehe",
+          "idCard": "No Id card",
+          "title": "No title",
+          "user": 2
+        },
+        "account": {
+          "id": 2,
+          "amount": 1000.0,
+          "status": "ACTIVE",
+          "createdAt": "2021-07-07T13:36:18.000+00:00",
+          "user": 2,
+          "sent": [],
+          "received": []
+        }
+      },
+      "sent": [],
+      "received": []
+    },
+    "amount": 1000.0,
+    "doneAt": null
+  },
+  "timestamp": "Wed Jul 07 15:40:43 CAT 2021",
+  "developer": "Anselme"
+}

@@ -4,15 +4,16 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SendMoneyDTO {
 
-    @NotBlank
+    @NotNull
+    @Min(1)
     private long receiver_id;
 
-    @NotBlank
+    @NotNull
     @Min(1)
     private double amount;
 

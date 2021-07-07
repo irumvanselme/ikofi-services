@@ -1,5 +1,6 @@
 package com.anselme.ikofi.models;
 
+import com.anselme.ikofi.models.enums.EAccountStatus;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -15,19 +16,21 @@ public class Account {
 
     private double amount;
 
+    @Enumerated(EnumType.STRING)
+    private EAccountStatus status;
+
     @CreationTimestamp
     private Date createdAt;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne(mappedBy = "account")
     private User user;
 
     public Account() {
     }
 
-    public Account(double amount, Date createdAt, User user) {
+    public Account(double amount, EAccountStatus status, User user) {
         this.amount = amount;
-        this.createdAt = createdAt;
+        this.status = status;
         this.user = user;
     }
 
@@ -45,6 +48,14 @@ public class Account {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public EAccountStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(EAccountStatus status) {
+        this.status = status;
     }
 
     public Date getCreatedAt() {

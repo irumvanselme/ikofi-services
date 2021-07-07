@@ -20,6 +20,8 @@ public class User {
     @Column(unique = true)
     private String email;
 
+    private String mobile;
+
     @NotNull
     @Column(unique = true)
     private String username;
@@ -27,13 +29,23 @@ public class User {
     @NotNull
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private ERoleName role;
+
+    @OneToOne
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
+
+    @OneToOne
+    @JoinColumn(name = "account_id", referencedColumnName = "id")
+    private Account account;
 
     public User() { }
 
-    public User(String fullNames, String email, String username, String password) {
+    public User(String fullNames, String email, String mobile, String username, String password) {
         this.fullNames = fullNames;
         this.email = email;
+        this.mobile = mobile;
         this.username = username;
         this.password = password;
     }
@@ -62,6 +74,14 @@ public class User {
         this.email = email;
     }
 
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
+    }
+
     public String getUsername() {
         return username;
     }
@@ -84,5 +104,21 @@ public class User {
 
     public void setRole(ERoleName role) {
         this.role = role;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }

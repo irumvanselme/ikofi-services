@@ -74,7 +74,7 @@ public class AuthController {
         if (repository.existsByUsername(dto.getUsername()))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already in use!");
 
-        User user = new User(dto.getFullName(), dto.getEmail(), dto.getUsername(), dto.getPassword());
+        User user = new User(dto.getFullName(), dto.getEmail(), dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         User _user = repository.save(user);

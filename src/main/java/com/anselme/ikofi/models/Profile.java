@@ -16,6 +16,9 @@ public class Profile {
 
     private String title;
 
+    @OneToOne(mappedBy = "profile")
+    private User user;
+
     public Profile() { }
 
     public Profile(String address, String idCard, String title) {

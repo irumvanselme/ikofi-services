@@ -10,6 +10,9 @@ public class SignUpDTO {
     String email;
 
     @NotBlank
+    String mobile;
+
+    @NotBlank
     String username;
 
     @NotBlank
@@ -34,6 +37,14 @@ public class SignUpDTO {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public void setEmail(String email) {

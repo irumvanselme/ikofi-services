@@ -5,6 +5,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "accounts")
@@ -24,6 +25,12 @@ public class Account {
 
     @OneToOne(mappedBy = "account")
     private User user;
+
+    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
+    private List<Transaction> sent;
+
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
+    private List<Transaction> received;
 
     public Account() {
     }
@@ -72,5 +79,21 @@ public class Account {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Transaction> getSent() {
+        return sent;
+    }
+
+    public void setSent(List<Transaction> sent) {
+        this.sent = sent;
+    }
+
+    public List<Transaction> getReceived() {
+        return received;
+    }
+
+    public void setReceived(List<Transaction> received) {
+        this.received = received;
     }
 }

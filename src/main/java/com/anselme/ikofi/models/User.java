@@ -11,21 +11,21 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long id;
+    private long id;
 
     @NotNull
-    public String fullNames;
-
-    @NotNull
-    @Column(unique = true)
-    public String email;
+    private String fullNames;
 
     @NotNull
     @Column(unique = true)
-    public String username;
+    private String email;
 
     @NotNull
-    public String password;
+    @Column(unique = true)
+    private String username;
+
+    @NotNull
+    private String password;
 
     private ERoleName role;
 

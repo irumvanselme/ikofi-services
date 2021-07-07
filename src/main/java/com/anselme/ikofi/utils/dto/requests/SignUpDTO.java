@@ -1,7 +1,11 @@
 package com.anselme.ikofi.utils.dto.requests;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import javax.validation.constraints.NotBlank;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SignUpDTO {
     @NotBlank
     String fullName;
@@ -17,6 +21,12 @@ public class SignUpDTO {
 
     @NotBlank
     String password;
+
+    @NotBlank
+    String address;
+
+    @NotBlank
+    String idCard;
 
     public SignUpDTO() { }
 
@@ -65,5 +75,21 @@ public class SignUpDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
     }
 }

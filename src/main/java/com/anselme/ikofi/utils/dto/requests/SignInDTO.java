@@ -1,7 +1,11 @@
 package com.anselme.ikofi.utils.dto.requests;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
 import javax.validation.constraints.NotNull;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SignInDTO {
     @NotNull
     public String login;

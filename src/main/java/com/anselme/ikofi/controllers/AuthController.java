@@ -1,7 +1,11 @@
 package com.anselme.ikofi.controllers;
 
+import com.anselme.ikofi.models.Account;
+import com.anselme.ikofi.models.Profile;
 import com.anselme.ikofi.models.User;
 
+import com.anselme.ikofi.models.enums.EAccountStatus;
+import com.anselme.ikofi.models.enums.ERoleName;
 import com.anselme.ikofi.services.UserService;
 import com.anselme.ikofi.utils.dto.requests.SignInDTO;
 import com.anselme.ikofi.utils.dto.requests.SignUpDTO;
@@ -70,8 +74,15 @@ public class AuthController {
         if (userService.userNameAlreadyInUse(dto.getUsername()))
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already in use !");
 
-        User user = new User(dto.getFullName(), dto.getEmail(), dto.getMobile(), dto.getUsername(), dto.getPassword());
+        User user = new User(dto.getFullName(), dto.getEmail(), ERoleName.ROLE_USER, dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
+
+        Profile profile = new Profile(dto.getAddress(), dto.getIdCard(), "No title");
+
+        Account account = new Account(0, EAccountStatus.ACTIVE);
+
+        user.setProfile(profile);
+        user.setAccount(account);
 
         User _user = userService.create(user);
 
@@ -80,7 +91,7 @@ public class AuthController {
 
     @GetMapping("/profile")
     public ResponseEntity<?> profile() {
-        User user =  userService.getLoggedInUser();
+        User user = userService.getLoggedInUser();
         return ResponseEntity.ok(user);
     }
 }

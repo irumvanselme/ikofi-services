@@ -1,5 +1,7 @@
 package com.anselme.ikofi.models;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.sun.istack.NotNull;
 import com.anselme.ikofi.models.enums.ERoleName;
 
@@ -7,6 +9,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class User {
 
     @Id
@@ -32,20 +35,21 @@ public class User {
     @Enumerated(EnumType.STRING)
     private ERoleName role;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private Profile profile;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 
     public User() { }
 
-    public User(String fullNames, String email, String mobile, String username, String password) {
+    public User(String fullNames, String email, ERoleName role, String mobile, String username, String password) {
         this.fullNames = fullNames;
         this.email = email;
         this.mobile = mobile;
+        this.role = role;
         this.username = username;
         this.password = password;
     }

@@ -1,6 +1,8 @@
 package com.anselme.ikofi.models;
 
 import com.anselme.ikofi.models.enums.EAccountStatus;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "accounts")
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Account {
 
     @Id
@@ -35,10 +38,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(double amount, EAccountStatus status, User user) {
+    public Account(double amount, EAccountStatus status) {
         this.amount = amount;
         this.status = status;
-        this.user = user;
     }
 
     public Long getId() {

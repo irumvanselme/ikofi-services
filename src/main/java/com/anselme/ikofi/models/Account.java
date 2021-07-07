@@ -1,6 +1,7 @@
 package com.anselme.ikofi.models;
 
 import com.anselme.ikofi.models.enums.EAccountStatus;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -27,8 +28,10 @@ public class Account {
     private User user;
 
     @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Transaction> sent;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY)
     private List<Transaction> received;
 

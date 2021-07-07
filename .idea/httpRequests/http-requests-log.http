@@ -1,3 +1,267 @@
+GET http://localhost:8080/api/account/transactions/sent
+Accept: application/json
+
+<> 2021-07-07T162231.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/received
+Accept: application/json
+
+<> 2021-07-07T162228.500.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/received
+Accept: application/json
+
+<> 2021-07-07T162226.500.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/sent
+Accept: application/json
+
+<> 2021-07-07T162222.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/received
+Accept: application/json
+
+<> 2021-07-07T162219.500.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/received
+Accept: application/json
+
+<> 2021-07-07T162155.500.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/sent
+Accept: application/json
+
+<> 2021-07-07T162153.200.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions/received
+Accept: application/json
+
+<> 2021-07-07T162142.404.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions/sent
+Accept: application/json
+
+<> 2021-07-07T162135.404.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T162130.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T162110.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T162055.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T161538.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T161210.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T161014.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T160900.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T160852.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions/sent
+
+<> 2021-07-07T160752.200.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions/received
+Accept: application/json
+
+<> 2021-07-07T160651.404.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions/sent
+Accept: application/json
+
+<> 2021-07-07T160646.404.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T160624.200.json
+
+###
+
+POST http://localhost:8080/api/money/send
+Content-Type: application/json
+
+{
+  "receiver_id": 2,
+  "amount": 1000
+}
+
+<> 2021-07-07T160425.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T160224.200.json
+
+###
+
+POST http://localhost:8080/api/money/send
+Content-Type: application/json
+
+{
+  "receiver_id": 2,
+  "amount": 1000
+}
+
+<> 2021-07-07T160031.200.json
+
+###
+
+POST http://localhost:8080/api/money/send
+Content-Type: application/json
+
+{
+  "receiver_id": 2,
+  "amount": 1000
+}
+
+<> 2021-07-07T160008.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T155831.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+<> 2021-07-07T155829.200.json
+
+###
+
+GET http://localhost:8080/api/account/transactions
+Accept: application/json
+
+###
+
+GET http://localhost:8080/api/accounts/received
+Accept: application/json
+
+<> 2021-07-07T155801.200.json
+
+###
+
+GET http://localhost:8080/api/accounts/received
+Accept: application/json
+
+<> 2021-07-07T155759.200.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions
+Accept: application/json
+
+<> 2021-07-07T155752.404.json
+
+###
+
+GET http://localhost:8080/api/accounts/sent
+Accept: application/json
+
+<> 2021-07-07T155746.200.json
+
+###
+
+GET http://localhost:8080/api/account/
+Accept: application/json
+
+<> 2021-07-07T155741.404.json
+
+###
+
+GET http://localhost:8080/api/account
+Accept: application/json
+
+<> 2021-07-07T155736.404.json
+
+###
+
+GET http://localhost:8080/api/account
+Accept: application/json
+
+<> 2021-07-07T155730.404.json
+
+###
+
+GET http://localhost:8080/api/accounts/transactions
+Accept: application/json
+
+<> 2021-07-07T155634.404.json
+
+###
+
 POST http://localhost:8080/api/money/send
 Content-Type: application/json
 
@@ -147,374 +411,6 @@ Content-Type: application/json
 {}
 
 <> 2021-07-07T145541.500.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T145504.500.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T145412.500.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143848.200.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143835.404.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143833.404.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143830.404.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143817.404.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143814.404.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{}
-
-<> 2021-07-07T143758.404.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T141058.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T141052.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T140937.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T140654.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T140210.200.json
-
-###
-
-POST http://localhost:8080/api/auth/register
-Content-Type: application/json
-
-{
-  "full_name": "IRUMVA HABUMUGISHA Anselme",
-  "email": "andesanselme@gmail.com",
-  "username": "anselme23",
-  "mobile": "+250 783 384 212",
-  "password": "kirehe123",
-  "id_card": "No Id card",
-  "address": "Kirehe"
-}
-
-<> 2021-07-07T140203.201.json
-
-###
-
-POST http://localhost:8080/api/auth/register
-Content-Type: application/json
-
-{
-  "full_name": "IRUMVA HABUMUGISHA Anselme",
-  "email": "andesanselme@gmail.com",
-  "username": "anselme23",
-  "mobile": "+250 783 384 212",
-  "password": "kirehe123",
-  "id_card": "No Id card",
-  "address": "Kirehe"
-}
-
-<> 2021-07-07T140148.500.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T135435.200.json
-
-###
-
-POST http://localhost:8080/api/auth/register
-Content-Type: application/json
-
-{
-  "full_name": "IRUMVA HABUMUGISHA Anselme",
-  "email": "andesanselme@gmail.com",
-  "username": "anselme23",
-  "mobile": "+250 783 384 212",
-  "password": "kirehe123",
-  "id_card": "No Id card",
-  "address": "Kirehe"
-}
-
-<> 2021-07-07T135426.201.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T135216.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T135128.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T134952.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T134839.200.json
-
-###
-
-GET http://localhost:8080/api/auth/testing
-Accept: application/json
-
-{}
-
-<> 2021-07-07T134629.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T134421.200.json
-
-###
-
-GET http://localhost:8080/api/auth/profile
-Accept: application/json
-
-{}
-
-<> 2021-07-07T134415.403.json
-
-###
-
-GET http://localhost:8080/api/auth/profile
-Accept: application/json
-
-{}
-
-<> 2021-07-07T130734.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130631.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130607.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130540.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-Authorization: Bearer dsadsa
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130525.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-Authorization: Bearer dsadsa
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130433.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-Authorization: Bearer dsadsa
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-Authorization: Bearer dsadsa
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-07T130030.200.json
 
 ###
 

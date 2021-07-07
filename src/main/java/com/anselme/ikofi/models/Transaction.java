@@ -1,7 +1,7 @@
 package com.anselme.ikofi.models;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -61,6 +61,7 @@ public class Transaction {
         this.receiver = receiver;
     }
 
+    @JsonIgnore
     public double getAmount() {
         return amount;
     }

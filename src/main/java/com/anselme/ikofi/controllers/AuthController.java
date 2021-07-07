@@ -15,10 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Optional;
@@ -72,7 +69,7 @@ public class AuthController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email Address already in use!");
 
         if (repository.existsByUsername(dto.getUsername()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already in use!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already in use !");
 
         User user = new User(dto.getFullName(), dto.getEmail(), dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -80,5 +77,10 @@ public class AuthController {
         User _user = repository.save(user);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new SignUpResponse(_user, "First Log in to get the token ... "));
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<?> profile(){
+        return ResponseEntity.ok(new User());
     }
 }

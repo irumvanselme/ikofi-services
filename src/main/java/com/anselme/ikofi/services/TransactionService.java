@@ -10,11 +10,4 @@ import java.util.List;
 @Service
 public class TransactionService {
 
-    public List<Transaction> sent(Account account){
-        return account.getSent();
-    }
-
-    public List<Transaction> received(Account account){
-        return account.getReceived();
-    }
 }

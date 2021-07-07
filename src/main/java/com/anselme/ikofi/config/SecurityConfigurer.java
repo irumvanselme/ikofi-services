@@ -21,7 +21,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     MyUserDetailsService userDetailsService;
 
     @Autowired
-    public SecurityConfigurer(MyUserDetailsService userDetailsService){
+    public SecurityConfigurer(MyUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
@@ -41,7 +41,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
         http.csrf()
                 .disable()
                 .authorizeRequests()
-                .antMatchers("/api/auth/**", "/api/issues/**").permitAll()
+                .antMatchers("/api/auth/login", "/api/auth/register").permitAll()
                 .anyRequest().authenticated();
     }
 
@@ -51,7 +51,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

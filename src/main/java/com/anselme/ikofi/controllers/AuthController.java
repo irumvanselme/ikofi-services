@@ -81,9 +81,6 @@ public class AuthController {
     @GetMapping("/profile")
     public ResponseEntity<?> profile() {
         User user =  userService.getLoggedInUser();
-
-        System.out.println(user.getFullNames());
-
-        return ResponseEntity.ok(new User());
+        return ResponseEntity.ok(user);
     }
 }

@@ -1,8 +1,8 @@
 package com.anselme.ikofi.utils.dto.responses;
 
 import com.anselme.ikofi.models.User;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SignUpResponse {

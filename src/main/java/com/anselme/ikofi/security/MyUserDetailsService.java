@@ -3,11 +3,11 @@ package com.anselme.ikofi.security;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.repositories.IUserRepository;
 
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 

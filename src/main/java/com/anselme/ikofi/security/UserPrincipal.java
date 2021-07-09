@@ -1,8 +1,8 @@
 package com.anselme.ikofi.security;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.models.enums.ERoleName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

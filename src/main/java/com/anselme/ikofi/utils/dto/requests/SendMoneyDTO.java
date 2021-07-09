@@ -11,7 +11,7 @@ public class SendMoneyDTO {
 
     @NotNull
     @Min(1)
-    private long receiver_id;
+    private long receiverId;
 
     @NotNull
     @Min(1)
@@ -21,16 +21,16 @@ public class SendMoneyDTO {
     }
 
     public SendMoneyDTO(long receiver_id, double amount) {
-        this.receiver_id = receiver_id;
+        this.receiverId = receiver_id;
         this.amount = amount;
     }
 
-    public long getReceiver_id() {
-        return receiver_id;
+    public long getReceiverId() {
+        return receiverId;
     }
 
-    public void setReceiver_id(long receiver_id) {
-        this.receiver_id = receiver_id;
+    public void setReceiverId(long receiverId) {
+        this.receiverId = receiverId;
     }
 
     public double getAmount() {

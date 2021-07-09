@@ -32,7 +32,7 @@ public class AppController {
 
     @PostMapping("/api/money/send")
     public ResponseEntity<ApiResponse> sendMoney(@Valid @RequestBody SendMoneyDTO dto) {
-        Optional<Account> _account = accountRepository.findById(dto.getReceiver_id());
+        Optional<Account> _account = accountRepository.findById(dto.getReceiverId());
 
         if (_account.isEmpty())
             return ResponseEntity.badRequest().body(new ApiResponse("Failed", "Failed", "Account to receive does not exit"));

@@ -16,16 +16,14 @@ public class TransactionService {
     private final ITransactionRepository transactionRepository;
 
     @Autowired
-    public TransactionService(IAccountRepository repository, ITransactionRepository transactionRepository){
+    public TransactionService(IAccountRepository repository, ITransactionRepository transactionRepository) {
         this.accountRepository = repository;
         this.transactionRepository = transactionRepository;
     }
 
     @Transactional
-    public Transaction send(Account sender, Account receiver, double amount){
-
+    public Transaction send(Account sender, Account receiver, double amount) {
         accountRepository.removeMoney(sender.getId(), amount);
-
         accountRepository.addMoney(receiver.getId(), amount);
 
         return transactionRepository.save(new Transaction(sender, receiver, amount));

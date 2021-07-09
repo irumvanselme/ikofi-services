@@ -9,6 +9,7 @@ import com.anselme.ikofi.models.enums.ERoleName;
 import com.anselme.ikofi.services.UserService;
 import com.anselme.ikofi.utils.dto.requests.SignInDTO;
 import com.anselme.ikofi.utils.dto.requests.SignUpDTO;
+import com.anselme.ikofi.utils.dto.responses.ApiResponse;
 import com.anselme.ikofi.utils.jwt.JwtTokenProvider;
 import com.anselme.ikofi.utils.dto.responses.SignUpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,25 +46,25 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@Valid @RequestBody SignInDTO dto) {
+    public ResponseEntity<ApiResponse> login(@Valid @RequestBody SignInDTO dto) {
         Optional<User> _user = userService.findUser(dto.getLogin());
 
         if (_user.isEmpty())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Credentials");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Invalid Credentials"));
 
         Authentication authentication;
 
         try {
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dto.getLogin(), dto.getPassword()));
         } catch (Exception exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Email or password ... ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Invalid Email or password ... "));
         }
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         String jwt = tokenProvider.generateToken(authentication);
 
-        return ResponseEntity.ok(new SignUpResponse(_user.get(), jwt));
+        return ResponseEntity.ok(new ApiResponse(new SignUpResponse(_user.get(), jwt)));
     }
 
     @PostMapping("/register")

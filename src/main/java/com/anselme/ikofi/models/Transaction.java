@@ -61,7 +61,6 @@ public class Transaction {
         this.receiver = receiver;
     }
 
-    @JsonIgnore
     public double getAmount() {
         return amount;
     }

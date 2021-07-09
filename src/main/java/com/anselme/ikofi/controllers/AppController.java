@@ -10,6 +10,7 @@ import com.anselme.ikofi.utils.dto.requests.SendMoneyDTO;
 import com.anselme.ikofi.utils.dto.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,6 +29,11 @@ public class AppController {
         this.accountRepository = iAccountRepository;
         this.userService = userService;
         this.transactionService = transactionService;
+    }
+
+    @GetMapping("/")
+    public String entryPoint(){
+        return "Welcome to ikofi application ";
     }
 
     @PostMapping("/api/money/send")

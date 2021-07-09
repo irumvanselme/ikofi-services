@@ -91,8 +91,8 @@ public class AuthController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<?> profile() {
+    public ResponseEntity<ApiResponse> profile() {
         User user = userService.getLoggedInUser();
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(new ApiResponse(user));
     }
 }

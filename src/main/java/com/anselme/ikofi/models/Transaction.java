@@ -1,11 +1,8 @@
 package com.anselme.ikofi.models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.CreationTimestamp;
-
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "transactions")

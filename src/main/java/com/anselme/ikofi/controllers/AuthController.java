@@ -68,12 +68,12 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody SignUpDTO dto) {
+    public ResponseEntity<ApiResponse> register(@Valid @RequestBody SignUpDTO dto) {
         if (dto.getEmail() != null && userService.emailAlreadyInUse(dto.getEmail()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email Address already in use!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Email Address already in use!"));
 
         if (userService.userNameAlreadyInUse(dto.getUsername()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Username already in use !");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Username already in use !"));
 
         User user = new User(dto.getFullName(), dto.getEmail(), ERoleName.ROLE_USER, dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
@@ -87,7 +87,7 @@ public class AuthController {
 
         User _user = userService.create(user);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(new SignUpResponse(_user, "First Log in to get the token ... "));
+        return ResponseEntity.status(HttpStatus.CREATED).body(new ApiResponse(new SignUpResponse(_user, "First Log in to get the token ... ")));
     }
 
     @GetMapping("/profile")

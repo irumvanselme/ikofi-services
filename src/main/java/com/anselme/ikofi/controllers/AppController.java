@@ -31,11 +31,6 @@ public class AppController {
         this.transactionService = transactionService;
     }
 
-    @GetMapping("/")
-    public String entryPoint(){
-        return "Welcome to ikofi application ";
-    }
-
     @PostMapping("/api/money/send")
     public ResponseEntity<ApiResponse> sendMoney(@Valid @RequestBody SendMoneyDTO dto) {
         Optional<Account> _account = accountRepository.findById(dto.getReceiver_id());

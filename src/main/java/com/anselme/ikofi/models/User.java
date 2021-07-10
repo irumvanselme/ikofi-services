@@ -1,6 +1,7 @@
 package com.anselme.ikofi.models;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -97,6 +98,7 @@ public class User {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
@@ -105,6 +107,7 @@ public class User {
         this.password = password;
     }
 
+    @JsonIgnore
     public ERoleName getRole() {
         return role;
     }

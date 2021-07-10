@@ -1,7 +1,5 @@
 package com.anselme.ikofi.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -9,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "profiles")
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Profile {
 
     @Id

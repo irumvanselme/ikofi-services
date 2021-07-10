@@ -2,10 +2,14 @@ package com.anselme.ikofi.models;
 
 import java.util.Date;
 import javax.persistence.*;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "transactions")
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class Transaction {
 
     @Id

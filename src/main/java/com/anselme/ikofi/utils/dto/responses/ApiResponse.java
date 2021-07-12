@@ -73,4 +73,20 @@ public class ApiResponse {
     public void setDeveloper(String developer) {
         this.developer = developer;
     }
+
+    public static ApiResponse success(Object data){
+        return new ApiResponse("Success", "Success", data);
+    }
+
+    public static ApiResponse success(String message, Object data){
+        return new ApiResponse("Success", message, data);
+    }
+
+    public static ApiResponse fail(Object data){
+        return new ApiResponse("Error", "Success", data);
+    }
+
+    public static ApiResponse fail(String message, Object data){
+        return new ApiResponse("Error", message, data);
+    }
 }

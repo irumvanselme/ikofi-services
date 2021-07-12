@@ -28,16 +28,4 @@ public class AccountController {
         User user = userService.getLoggedInUser();
         return ResponseEntity.ok(new ApiResponse(accountService.transactions(user.getAccount().getId())));
     }
-
-    @GetMapping("/sent")
-    public ResponseEntity<ApiResponse> getAllTransactionsThatWhereSentByMe() {
-        User user = userService.getLoggedInUser();
-        return ResponseEntity.ok(new ApiResponse(user.getAccount().getSent()));
-    }
-
-    @GetMapping("/received")
-    public ResponseEntity<ApiResponse> getAllTransactionsThatWhereReceivedByMe() {
-        User user = userService.getLoggedInUser();
-        return ResponseEntity.ok(new ApiResponse(user.getAccount().getReceived()));
-    }
 }

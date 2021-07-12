@@ -21,7 +21,7 @@ public class Activity {
     @Enumerated(EnumType.STRING)
     private EUserActions action;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "transaction_id", referencedColumnName = "id")
     private Transaction transaction;
 

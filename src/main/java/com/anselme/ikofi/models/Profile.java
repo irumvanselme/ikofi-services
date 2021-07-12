@@ -18,17 +18,14 @@ public class Profile {
 
     private String idCard;
 
-    private String title;
-
     @OneToOne(mappedBy = "profile", fetch = FetchType.LAZY)
     private User user;
 
     public Profile() { }
 
-    public Profile(String address, String idCard, String title) {
+    public Profile(String address, String idCard) {
         this.address = address;
         this.idCard = idCard;
-        this.title = title;
     }
 
     public Long getId() {
@@ -53,14 +50,6 @@ public class Profile {
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public User getUser() {

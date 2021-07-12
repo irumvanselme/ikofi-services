@@ -24,4 +24,8 @@ public class ActivityServiceImpl implements IActivityService {
     public List<Activity> findByActionAndUser(User user, EUserActions action) {
         return activityRepository.findByActionAndUser(action, user);
     }
+
+    public Activity record(Activity activity){
+        return activityRepository.save(activity);
+    }
 }

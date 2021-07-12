@@ -9,4 +9,6 @@ import java.util.List;
 public interface IActivityService {
 
     public List<Activity> findByActionAndUser(User user, EUserActions action);
+
+    public Activity record(Activity activity);
 }

@@ -9,6 +9,7 @@ import com.sun.istack.NotNull;
 import com.anselme.ikofi.models.enums.ERoleName;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -46,6 +47,9 @@ public class User {
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<Activity> activities;
 
     public User() { }
 
@@ -130,5 +134,13 @@ public class User {
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public List<Activity> getActivities() {
+        return activities;
+    }
+
+    public void setActivities(List<Activity> activities) {
+        this.activities = activities;
     }
 }

@@ -1,23 +1,24 @@
-package com.anselme.ikofi.services;
+package com.anselme.ikofi.services.impl;
 
 
 import com.anselme.ikofi.models.User;
-import org.springframework.stereotype.Service;
 import com.anselme.ikofi.repositories.IUserRepository;
+import com.anselme.ikofi.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserServiceImpl implements IUserService {
 
     private final IUserRepository userRepository;
 
     @Autowired
-    public UserService(IUserRepository userRepository) {
+    public UserServiceImpl(IUserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

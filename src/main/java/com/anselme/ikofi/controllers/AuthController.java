@@ -5,7 +5,7 @@ import com.anselme.ikofi.models.Profile;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.models.enums.EAccountStatus;
 import com.anselme.ikofi.models.enums.ERoleName;
-import com.anselme.ikofi.services.UserService;
+import com.anselme.ikofi.services.IUserService;
 import com.anselme.ikofi.utils.dto.requests.SignInDTO;
 import com.anselme.ikofi.utils.dto.requests.SignUpDTO;
 import com.anselme.ikofi.utils.dto.responses.ApiResponse;
@@ -32,12 +32,12 @@ public class AuthController {
 
     private final JwtTokenProvider tokenProvider;
 
-    private final UserService userService;
+    private final IUserService userService;
 
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider tokenProvider, UserService service, PasswordEncoder encoder) {
+    public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider tokenProvider, IUserService service, PasswordEncoder encoder) {
         this.authenticationManager = authenticationManager;
         this.tokenProvider = tokenProvider;
         this.userService = service;

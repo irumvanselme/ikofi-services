@@ -4,8 +4,8 @@ import com.anselme.ikofi.models.Account;
 import com.anselme.ikofi.models.Transaction;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.repositories.IAccountRepository;
-import com.anselme.ikofi.services.TransactionService;
-import com.anselme.ikofi.services.UserService;
+import com.anselme.ikofi.services.ITransactionService;
+import com.anselme.ikofi.services.IUserService;
 import com.anselme.ikofi.utils.dto.requests.SendMoneyDTO;
 import com.anselme.ikofi.utils.dto.responses.ApiResponse;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +20,11 @@ import java.util.Optional;
 @RestController
 public class AppController {
     private final IAccountRepository accountRepository;
-    private final TransactionService transactionService;
-    private final UserService userService;
+    private final ITransactionService transactionService;
+    private final IUserService userService;
 
     @Autowired
-    public AppController(IAccountRepository iAccountRepository, TransactionService transactionService, UserService userService) {
+    public AppController(IAccountRepository iAccountRepository, ITransactionService transactionService, IUserService userService) {
         this.accountRepository = iAccountRepository;
         this.userService = userService;
         this.transactionService = transactionService;

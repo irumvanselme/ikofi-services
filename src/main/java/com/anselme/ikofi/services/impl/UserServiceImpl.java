@@ -4,11 +4,11 @@ package com.anselme.ikofi.services.impl;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.repositories.IUserRepository;
 import com.anselme.ikofi.services.IUserService;
+import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 

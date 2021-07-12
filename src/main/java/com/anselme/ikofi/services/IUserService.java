@@ -1,12 +1,10 @@
 package com.anselme.ikofi.services;
 
-import com.anselme.ikofi.models.User;
-import org.springframework.stereotype.Service;
-
 import java.util.Optional;
+import com.anselme.ikofi.models.User;
 
-@Service
 public interface IUserService {
+
     public User create(User user);
 
     public User findById(long id);

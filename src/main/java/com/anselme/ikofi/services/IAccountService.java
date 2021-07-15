@@ -13,5 +13,7 @@ public interface IAccountService {
 
     public Optional<Account> findById(long id);
 
+    public Optional<Account> findByAccountNumber(String accountNumber);
+
     public String getNewAccountNumber();
 }

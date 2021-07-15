@@ -32,6 +32,11 @@ public class AccountServiceImpl implements IAccountService {
         return accountRepository.findById(id);
     }
 
+
+    public Optional<Account> findByAccountNumber(String accountNumber){
+        return accountRepository.findByAccountNumber(accountNumber);
+    }
+
     public String getNewAccountNumber(){
         var number = "0000";
         do {

@@ -4,15 +4,15 @@ import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SendMoneyDTO {
 
-    @NotNull
-    @Min(1)
-    private long receiverId;
+    @NotBlank
+    private String accountNumber;
 
     @NotNull
     @Min(1)
@@ -25,18 +25,18 @@ public class SendMoneyDTO {
     public SendMoneyDTO() {
     }
 
-    public SendMoneyDTO(long receiver_id, double amount, String pin) {
-        this.receiverId = receiver_id;
+    public SendMoneyDTO(String accountNumber, double amount, String pin) {
+        this.accountNumber = accountNumber;
         this.amount = amount;
         this.pin = pin;
     }
 
-    public long getReceiverId() {
-        return receiverId;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setReceiverId(long receiverId) {
-        this.receiverId = receiverId;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public double getAmount() {

@@ -1,17 +1,16 @@
 package com.anselme.ikofi.models;
 
-import com.anselme.ikofi.models.enums.EAccountStatus;
+import org.hibernate.annotations.Proxy;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.hibernate.annotations.CreationTimestamp;
+import com.anselme.ikofi.models.enums.EAccountStatus;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "accounts")
-@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+@Proxy(lazy = false)
 public class Account {
 
     @Id
@@ -30,7 +29,6 @@ public class Account {
     @CreationTimestamp
     private Date createdAt;
 
-    @JsonIgnore
     @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     private User user;
 
@@ -81,6 +79,7 @@ public class Account {
         return status;
     }
 
+    @JsonIgnore
     public void setStatus(EAccountStatus status) {
         this.status = status;
     }
@@ -93,6 +92,7 @@ public class Account {
         this.createdAt = createdAt;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }

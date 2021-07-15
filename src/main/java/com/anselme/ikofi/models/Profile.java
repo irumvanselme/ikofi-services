@@ -19,7 +19,6 @@ public class Profile {
 
     private String idCard;
 
-    @JsonIgnore
     @OneToOne(mappedBy = "profile", fetch = FetchType.LAZY)
     private User user;
 
@@ -54,6 +53,7 @@ public class Profile {
         this.idCard = idCard;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }

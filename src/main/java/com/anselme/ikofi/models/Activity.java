@@ -1,6 +1,7 @@
 package com.anselme.ikofi.models;
 
 import com.anselme.ikofi.models.enums.EUserActions;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -45,6 +46,7 @@ public class Activity {
         this.id = id;
     }
 
+    @JsonIgnore
     public User getUser() {
         return user;
     }

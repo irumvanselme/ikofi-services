@@ -45,8 +45,7 @@ public class User {
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Activity> activities;
 
     public User() { }
@@ -134,6 +133,7 @@ public class User {
         this.account = account;
     }
 
+    @JsonIgnore
     public List<Activity> getActivities() {
         return activities;
     }

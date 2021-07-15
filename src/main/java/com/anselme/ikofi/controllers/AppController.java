@@ -1,16 +1,15 @@
 package com.anselme.ikofi.controllers;
 
 import com.anselme.ikofi.models.Account;
-import com.anselme.ikofi.models.Activity;
 import com.anselme.ikofi.models.Transaction;
 import com.anselme.ikofi.models.User;
-import com.anselme.ikofi.models.enums.EUserActions;
 import com.anselme.ikofi.services.IAccountService;
-import com.anselme.ikofi.services.IActivityService;
 import com.anselme.ikofi.services.ITransactionService;
 import com.anselme.ikofi.services.IUserService;
 import com.anselme.ikofi.utils.dto.requests.SendMoneyDTO;
 import com.anselme.ikofi.utils.dto.responses.ApiResponse;
+import com.anselme.ikofi.utils.functions.PasswordManager;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,6 +38,9 @@ public class AppController {
 
         if (_account.isEmpty())
             return ResponseEntity.badRequest().body(ApiResponse.fail("Account to receive does not exit"));
+
+        if(!PasswordManager.compare(dto.getPin(), _account.get().getPin()))
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(ApiResponse.fail("Pin does not Mathch "));
 
         User user = userService.getLoggedInUser();
 

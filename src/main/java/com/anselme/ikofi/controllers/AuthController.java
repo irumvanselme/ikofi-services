@@ -10,6 +10,7 @@ import com.anselme.ikofi.services.IUserService;
 import com.anselme.ikofi.utils.dto.requests.SignInDTO;
 import com.anselme.ikofi.utils.dto.requests.SignUpDTO;
 import com.anselme.ikofi.utils.dto.responses.ApiResponse;
+import com.anselme.ikofi.utils.functions.PasswordManager;
 import com.anselme.ikofi.utils.jwt.JwtTokenProvider;
 import com.anselme.ikofi.utils.dto.responses.SignUpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,7 +80,7 @@ public class AuthController {
 
         Profile profile = new Profile(dto.getAddress(), dto.getIdCard());
 
-        Account account = new Account(0, encode(Integer.toString(dto.getPin())), EAccountStatus.ACTIVE);
+        Account account = new Account(0, PasswordManager.encode(dto.getPin()), EAccountStatus.ACTIVE);
         account.setAccountNumber(accountService.getNewAccountNumber());
 
         user.setProfile(profile);
@@ -95,10 +95,5 @@ public class AuthController {
     public ResponseEntity<ApiResponse> profile() {
         User user = userService.getLoggedInUser();
         return ResponseEntity.ok(new ApiResponse(user));
-    }
-
-    public String encode(String password){
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        return encoder.encode(password);
     }
 }

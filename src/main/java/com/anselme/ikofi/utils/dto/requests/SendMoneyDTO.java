@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SendMoneyDTO {
@@ -17,12 +18,17 @@ public class SendMoneyDTO {
     @Min(1)
     private double amount;
 
+    @NotNull
+    @Pattern(regexp = "^[0-9]{5}$")
+    private String  pin;
+
     public SendMoneyDTO() {
     }
 
-    public SendMoneyDTO(long receiver_id, double amount) {
+    public SendMoneyDTO(long receiver_id, double amount, String pin) {
         this.receiverId = receiver_id;
         this.amount = amount;
+        this.pin = pin;
     }
 
     public long getReceiverId() {
@@ -39,5 +45,13 @@ public class SendMoneyDTO {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 }

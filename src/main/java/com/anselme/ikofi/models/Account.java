@@ -56,6 +56,7 @@ public class Account {
         return amount;
     }
 
+    @JsonIgnore
     public String getPin() {
         return pin;
     }

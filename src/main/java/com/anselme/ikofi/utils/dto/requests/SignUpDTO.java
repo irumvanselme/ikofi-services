@@ -2,10 +2,9 @@ package com.anselme.ikofi.utils.dto.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
-import org.hibernate.validator.constraints.Length;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class SignUpDTO {
@@ -21,8 +20,9 @@ public class SignUpDTO {
     @NotBlank
     String username;
 
-    @Min(1000)
-    int pin;
+    @NotBlank
+    @Pattern(regexp = "^[0-9]{5}$")
+    String pin;
 
     @NotBlank
     String password;
@@ -35,7 +35,7 @@ public class SignUpDTO {
 
     public SignUpDTO() { }
 
-    public SignUpDTO(String fullName, String email, String username,int pin, String password) {
+    public SignUpDTO(String fullName, String email, String username,String pin, String password) {
         this.fullName = fullName;
         this.email = email;
         this.username = username;
@@ -75,11 +75,11 @@ public class SignUpDTO {
         this.username = username;
     }
 
-    public int getPin() {
+    public String getPin() {
         return pin;
     }
 
-    public void setPin(int pin) {
+    public void setPin(String pin) {
         this.pin = pin;
     }
 

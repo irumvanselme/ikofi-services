@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 @Service
 public class AccountServiceImpl implements IAccountService {
@@ -29,5 +30,15 @@ public class AccountServiceImpl implements IAccountService {
 
     public Optional<Account> findById(long id){
         return accountRepository.findById(id);
+    }
+
+    public String getNewAccountNumber(){
+        var number = "0000";
+        do {
+            Random random = new Random();
+            number = String.format("%04d", random.nextInt(10000));
+        } while (accountRepository.findByAccountNumber(number).isPresent());
+
+        return number;
     }
 }

@@ -37,12 +37,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     private ERoleName role;
 
-    @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
     private Profile profile;
 
-    @JsonIgnore
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id", referencedColumnName = "id")
     private Account account;

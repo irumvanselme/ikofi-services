@@ -1,5 +1,6 @@
 package com.anselme.ikofi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -18,6 +19,7 @@ public class Profile {
 
     private String idCard;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "profile", fetch = FetchType.LAZY)
     private User user;
 

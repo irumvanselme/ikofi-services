@@ -7,6 +7,8 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 @Repository
 public interface IAccountRepository extends JpaRepository<Account, Long> {
 
@@ -17,4 +19,6 @@ public interface IAccountRepository extends JpaRepository<Account, Long> {
     @Modifying
     @Query("UPDATE Account SET amount = amount + :transactionAmount WHERE id = :id")
     void addMoney(@Param("id") long id, @Param("transactionAmount") final double transactionAmount);
+
+    Optional<Account> findByAccountNumber(String accountNumber);
 }

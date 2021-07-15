@@ -2,7 +2,9 @@ package com.anselme.ikofi.utils.dto.requests;
 
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
@@ -19,6 +21,9 @@ public class SignUpDTO {
     @NotBlank
     String username;
 
+    @Min(1000)
+    int pin;
+
     @NotBlank
     String password;
 
@@ -30,11 +35,12 @@ public class SignUpDTO {
 
     public SignUpDTO() { }
 
-    public SignUpDTO(String fullName, String email, String username, String password) {
+    public SignUpDTO(String fullName, String email, String username,int pin, String password) {
         this.fullName = fullName;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.pin = pin;
     }
 
     public String getFullName() {
@@ -67,6 +73,14 @@ public class SignUpDTO {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public int getPin() {
+        return pin;
+    }
+
+    public void setPin(int pin) {
+        this.pin = pin;
     }
 
     public String getPassword() {

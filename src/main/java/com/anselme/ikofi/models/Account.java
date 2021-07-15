@@ -18,6 +18,10 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String pin;
+
+    private String accountNumber;
+
     private double amount;
 
     @Enumerated(EnumType.STRING)
@@ -26,14 +30,16 @@ public class Account {
     @CreationTimestamp
     private Date createdAt;
 
+    @JsonIgnore
     @OneToOne(mappedBy = "account", fetch = FetchType.LAZY)
     private User user;
 
     public Account() {
     }
 
-    public Account(double amount, EAccountStatus status) {
+    public Account(double amount, String pin, EAccountStatus status) {
         this.amount = amount;
+        this.pin = pin;
         this.status = status;
     }
 
@@ -48,6 +54,22 @@ public class Account {
     @JsonIgnore
     public double getAmount() {
         return amount;
+    }
+
+    public String getPin() {
+        return pin;
+    }
+
+    public void setPin(String pin) {
+        this.pin = pin;
+    }
+
+    public String  getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String  accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public void setAmount(double amount) {

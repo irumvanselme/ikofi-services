@@ -5,6 +5,7 @@ import com.anselme.ikofi.models.Profile;
 import com.anselme.ikofi.models.User;
 import com.anselme.ikofi.models.enums.EAccountStatus;
 import com.anselme.ikofi.models.enums.ERoleName;
+import com.anselme.ikofi.services.IAccountService;
 import com.anselme.ikofi.services.IUserService;
 import com.anselme.ikofi.utils.dto.requests.SignInDTO;
 import com.anselme.ikofi.utils.dto.requests.SignUpDTO;
@@ -18,6 +19,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,19 +31,18 @@ import java.util.Optional;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-
     private final JwtTokenProvider tokenProvider;
-
     private final IUserService userService;
-
     private final PasswordEncoder passwordEncoder;
+    private final IAccountService accountService;
 
     @Autowired
-    public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider tokenProvider, IUserService service, PasswordEncoder encoder) {
+    public AuthController(AuthenticationManager authenticationManager, JwtTokenProvider tokenProvider, IUserService service, PasswordEncoder encoder, IAccountService accountService) {
         this.authenticationManager = authenticationManager;
         this.tokenProvider = tokenProvider;
         this.userService = service;
         this.passwordEncoder = encoder;
+        this.accountService = accountService;
     }
 
     @PostMapping("/login")
@@ -49,14 +50,14 @@ public class AuthController {
         Optional<User> _user = userService.findUser(dto.getLogin());
 
         if (_user.isEmpty())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Invalid Credentials"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Credentials"));
 
         Authentication authentication;
 
         try {
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dto.getLogin(), dto.getPassword()));
         } catch (Exception exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Invalid Email or password ... "));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Email or password ... "));
         }
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -69,17 +70,18 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@Valid @RequestBody SignUpDTO dto) {
         if (dto.getEmail() != null && userService.emailAlreadyInUse(dto.getEmail()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Email Address already in use!"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Email Address already in use!"));
 
         if (userService.userNameAlreadyInUse(dto.getUsername()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ApiResponse("Username already in use !"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Username already in use !"));
 
         User user = new User(dto.getFullName(), dto.getEmail(), ERoleName.ROLE_USER, dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
         Profile profile = new Profile(dto.getAddress(), dto.getIdCard());
 
-        Account account = new Account(0, EAccountStatus.ACTIVE);
+        Account account = new Account(0, encode(Integer.toString(dto.getPin())), EAccountStatus.ACTIVE);
+        account.setAccountNumber(accountService.getNewAccountNumber());
 
         user.setProfile(profile);
         user.setAccount(account);
@@ -93,5 +95,10 @@ public class AuthController {
     public ResponseEntity<ApiResponse> profile() {
         User user = userService.getLoggedInUser();
         return ResponseEntity.ok(new ApiResponse(user));
+    }
+
+    public String encode(String password){
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        return encoder.encode(password);
     }
 }

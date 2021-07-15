@@ -1,3 +1,261 @@
+POST http://localhost:8080/api/money/send
+Content-Type: application/json
+
+{
+  "receiver_id": 3,
+  "amount": 1000
+}
+
+<> 2021-07-15T104303.200.json
+
+###
+
+GET http://localhost:8080/api/auth/profile
+Accept: application/json
+
+{}
+
+<> 2021-07-15T104246.200.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "MUHIRWA Lambert",
+  "email": "muhirwa@gmail.com",
+  "username": "muhirwa",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Musanze",
+  "pin": 11328
+}
+
+<> 2021-07-15T104128.201.json
+
+###
+
+GET http://localhost:8080/api/auth/profile
+Accept: application/json
+
+{}
+
+<> 2021-07-15T104024.200.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "andesanselme@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102700.200.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "andesanselme@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102608.200.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "andesanselme@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102528.200.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "batisita@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102512.400.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "batisita@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102509.400.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "batisita@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102502.400.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "batisita@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102412.400.json
+
+###
+
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "batisita@gmail.com",
+  "password": "kirehe123"
+}
+
+<> 2021-07-15T102239.400.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe",
+  "pin": 1111
+}
+
+<> 2021-07-15T102212.201.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe",
+  "pin": 1111
+}
+
+<> 2021-07-15T102135.201.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe",
+  "pin": 12
+}
+
+<> 2021-07-15T102127.400.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe",
+  "pin": 12
+}
+
+<> 2021-07-15T102121.500.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe",
+  "pin": 12
+}
+
+<> 2021-07-15T102052.500.json
+
+###
+
+POST http://localhost:8080/api/auth/register
+Content-Type: application/json
+
+{
+  "full_name": "IRUMVA HABUMUGISHA Anselme",
+  "email": "andesanselme@gmail.com",
+  "username": "anselme23",
+  "mobile": "+250 783 384 212",
+  "password": "kirehe123",
+  "id_card": "No Id card",
+  "address": "Kirehe"
+}
+
+<> 2021-07-15T101831.500.json
+
+###
+
+GET http://localhost:8080/api/auth/testing
+Accept: application/json
+
+{}
+
+###
+
 POST http://localhost:8080/api/auth/login
 Content-Type: application/json
 
@@ -341,184 +599,6 @@ Accept: application/json
 {}
 
 <> 2021-07-12T115413.404.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T115408.500.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T105453.500.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T105444.500.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{
-  "receiver_id": 1,
-  "amount": 1000
-}
-
-<> 2021-07-12T102619.200.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{
-  "receiver_id": 2,
-  "amount": 1000
-}
-
-<> 2021-07-12T102558.200.json
-
-###
-
-POST http://localhost:8080/api/money/send
-Content-Type: application/json
-
-{
-  "receiver_id": 2,
-  "amount": 1000
-}
-
-<> 2021-07-12T102440.200.json
-
-###
-
-GET http://localhost:8080/api/account/transactions
-Accept: application/json
-
-<> 2021-07-12T102437.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T102426.200.json
-
-###
-
-GET http://localhost:8080/api/account/transactions
-Accept: application/json
-
-<> 2021-07-12T100229.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T100149.200.json
-
-###
-
-POST http://localhost:8080/api/auth/login
-Content-Type: application/json
-
-{
-  "login": "andesanselme@gmail.com",
-  "password": "kirehe123"
-}
-
-<> 2021-07-12T095237.200.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/sent
-Accept: application/json
-
-<> 2021-07-07T162231.200.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/received
-Accept: application/json
-
-<> 2021-07-07T162228.500.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/received
-Accept: application/json
-
-<> 2021-07-07T162226.500.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/sent
-Accept: application/json
-
-<> 2021-07-07T162222.200.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/received
-Accept: application/json
-
-<> 2021-07-07T162219.500.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/received
-Accept: application/json
-
-<> 2021-07-07T162155.500.json
-
-###
-
-GET http://localhost:8080/api/account/transactions/sent
-Accept: application/json
-
-<> 2021-07-07T162153.200.json
-
-###
-
-GET http://localhost:8080/api/accounts/transactions/received
-Accept: application/json
-
-<> 2021-07-07T162142.404.json
 
 ###
 

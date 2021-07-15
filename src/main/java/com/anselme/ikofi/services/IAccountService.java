@@ -12,4 +12,6 @@ public interface IAccountService {
     public List<Transaction> transactions(Long id);
 
     public Optional<Account> findById(long id);
+
+    public String getNewAccountNumber();
 }

@@ -12,7 +12,7 @@ public class ApiResponse {
     private String message = "Success";
     private Object data;
     private String timestamp = new Date().toString();
-    private String developer = "Anselme";
+    private String developer = "irumvanselme";
 
     public ApiResponse() {
     }
@@ -83,7 +83,7 @@ public class ApiResponse {
     }
 
     public static ApiResponse fail(Object data){
-        return new ApiResponse("Error", "Success", data);
+        return new ApiResponse("Error", "An error occurred", data);
     }
 
     public static ApiResponse fail(String message, Object data){

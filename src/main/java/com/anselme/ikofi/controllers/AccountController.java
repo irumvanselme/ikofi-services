@@ -12,6 +12,7 @@ import com.anselme.ikofi.utils.functions.PasswordManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +21,13 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
-public class AppController {
+public class AccountController {
     private final IAccountService accountService;
     private final ITransactionService transactionService;
     private final IUserService userService;
 
     @Autowired
-    public AppController(IAccountService iAccountService, ITransactionService transactionService, IUserService userService) {
+    public AccountController(IAccountService iAccountService, ITransactionService transactionService, IUserService userService) {
         this.accountService  = iAccountService;
         this.userService = userService;
         this.transactionService = transactionService;
@@ -50,5 +51,12 @@ public class AppController {
         Transaction transaction = transactionService.send(user.getAccount(), _account.get(), dto.getAmount());
 
         return ResponseEntity.ok(ApiResponse.success(transaction));
+    }
+
+    @GetMapping("/api/account/balance")
+    public ResponseEntity<ApiResponse> getBalance(){
+        User user = userService.getLoggedInUser();
+
+        return ResponseEntity.ok(ApiResponse.success(user.getAccount().getAmount()));
     }
 }

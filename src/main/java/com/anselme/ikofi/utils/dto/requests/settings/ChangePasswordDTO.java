@@ -1,9 +1,12 @@
 package com.anselme.ikofi.utils.dto.requests.settings;
 
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.NotBlank;
 
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class ChangePasswordDTO {
 
     @NotBlank

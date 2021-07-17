@@ -78,7 +78,7 @@ public class AuthController {
         User user = new User(dto.getFullName(), dto.getEmail(), ERoleName.ROLE_USER, dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
 
-        Profile profile = new Profile(dto.getAddress(), dto.getIdCard());
+        Profile profile = new Profile();
 
         Account account = new Account(0, PasswordManager.encode(dto.getPin()), EAccountStatus.ACTIVE);
         account.setAccountNumber(accountService.getNewAccountNumber());

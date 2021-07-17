@@ -14,7 +14,6 @@ public class SignUpDTO {
     @NotBlank
     String email;
 
-    @NotBlank
     String mobile;
 
     @NotBlank
@@ -26,12 +25,6 @@ public class SignUpDTO {
 
     @NotBlank
     String password;
-
-    @NotBlank
-    String address;
-
-    @NotBlank
-    String idCard;
 
     public SignUpDTO() { }
 
@@ -89,21 +82,5 @@ public class SignUpDTO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
     }
 }

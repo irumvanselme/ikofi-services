@@ -50,14 +50,14 @@ public class AuthController {
         Optional<User> _user = userService.findUser(dto.getLogin());
 
         if (_user.isEmpty())
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Credentials"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Email or password", null));
 
         Authentication authentication;
 
         try {
             authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dto.getLogin(), dto.getPassword()));
         } catch (Exception exception) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Email or password ... "));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Invalid Email or password", null));
         }
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -70,10 +70,10 @@ public class AuthController {
     @PostMapping("/register")
     public ResponseEntity<ApiResponse> register(@Valid @RequestBody SignUpDTO dto) {
         if (dto.getEmail() != null && userService.emailAlreadyInUse(dto.getEmail()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Email Address already in use!"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Email Address already in use!", null));
 
         if (userService.userNameAlreadyInUse(dto.getUsername()))
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Username already in use !"));
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ApiResponse.fail("Username already in use !", null));
 
         User user = new User(dto.getFullName(), dto.getEmail(), ERoleName.ROLE_USER, dto.getMobile(), dto.getUsername(), dto.getPassword());
         user.setPassword(passwordEncoder.encode(dto.getPassword()));
